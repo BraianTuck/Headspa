@@ -1,0 +1,223 @@
+:root {
+    /* Color palette from globals.css */
+    --background: oklch(0.97 0.015 60);
+    --foreground: oklch(0.2 0.03 30);
+    --card: oklch(0.98 0.01 50);
+    --card-foreground: oklch(0.2 0.03 30);
+    --popover: oklch(0.98 0.01 50);
+    --popover-foreground: oklch(0.2 0.03 30);
+    --primary: oklch(0.48 0.12 35);
+    --primary-foreground: oklch(0.98 0.01 50);
+    --secondary: oklch(0.92 0.02 50);
+    --secondary-foreground: oklch(0.48 0.12 35);
+    --muted: oklch(0.93 0.015 55);
+    --muted-foreground: oklch(0.5 0.04 35);
+    --accent: oklch(0.72 0.09 70);
+    --accent-foreground: oklch(0.2 0.03 30);
+    --destructive: oklch(0.5 0.15 30);
+    --destructive-foreground: oklch(0.98 0.01 50);
+    --border: oklch(0.88 0.02 50);
+    --input: oklch(0.88 0.02 50);
+    --ring: oklch(0.48 0.12 35);
+    --radius: 0.75rem;
+
+    /* Fonts */
+    --font-sans: "Geist", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-serif: "Times New Roman", serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+}
+
+/* Animations included in style jsx global */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: inline-flex;
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin 20s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+    animation: spin 30s linear infinite reverse;
+}
+
+@keyframes bounce-subtle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce-subtle {
+    animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+/* Helper util classes that Map to the variables */
+.bg-background {
+    background-color: var(--background);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.bg-primary\/5 {
+    background-color: color-mix(in srgb, var(--primary) 5%, transparent);
+}
+
+.bg-primary\/10 {
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.bg-primary\/20 {
+    background-color: color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.bg-primary\/40 {
+    background-color: color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+.bg-primary\/80 {
+    background-color: color-mix(in srgb, var(--primary) 80%, transparent);
+}
+
+.bg-primary\/90 {
+    background-color: color-mix(in srgb, var(--primary) 90%, transparent);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+}
+
+.bg-secondary\/10 {
+    background-color: color-mix(in srgb, var(--secondary) 10%, transparent);
+}
+
+.bg-secondary\/30 {
+    background-color: color-mix(in srgb, var(--secondary) 30%, transparent);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+}
+
+.bg-muted {
+    background-color: var(--muted);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.text-primary\/60 {
+    color: color-mix(in srgb, var(--primary) 60%, transparent);
+}
+
+.text-primary\/70 {
+    color: color-mix(in srgb, var(--primary) 70%, transparent);
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.text-muted-foreground {
+    color: var(--muted-foreground);
+}
+
+.text-foreground {
+    color: var(--foreground);
+}
+
+.text-white {
+    color: white;
+}
+
+.border-primary {
+    border-color: var(--primary);
+}
+
+.border-primary\/5 {
+    border-color: color-mix(in srgb, var(--primary) 5%, transparent);
+}
+
+.border-primary\/10 {
+    border-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.border-primary\/20 {
+    border-color: color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.font-sans {
+    font-family: var(--font-sans);
+}
+
+.font-serif {
+    font-family: var(--font-serif);
+}
+
+/* Ensure images cover */
+.object-cover {
+    object-fit: cover;
+}
